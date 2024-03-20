@@ -15,7 +15,7 @@
     public required string ProductNameFilter { get; set; }
 
     [Inject]
-    public required LocalDBMSSQLLocalDBContext DatabaseContext { get; set; }
+    public required NorthwindContext DatabaseContext { get; set; }
 
     private Product[]? _products;
 

@@ -1,4 +1,4 @@
-﻿@inherits DbContextComponentBase<LocalDBMSSQLLocalDBContext>
+﻿@inherits DbContextComponentBase<NorthwindContext>
 
 <h3>ProductList: @ProductNameFilter</h3>
 
@@ -19,7 +19,7 @@
     private Product[]? _products;
 
     protected async override Task OnInitializedAsync() {
-        _products ??= await DbContext.Products
+        _products ??= await DatabaseContext.Products
                               .Where(p => p.ProductName.StartsWith(this.ProductNameFilter))
                               .ToArrayAsync();
     }

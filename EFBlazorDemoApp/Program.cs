@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//builder.Services.AddDbContext<LocalDBMSSQLLocalDBContext>(
+//builder.Services.AddDbContext<NorthwindContext>(
 //        options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddDbContextFactory<LocalDBMSSQLLocalDBContext>(
+builder.Services.AddDbContextFactory<NorthwindContext>(
         options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 

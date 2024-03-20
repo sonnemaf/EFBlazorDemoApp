@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EFBlazorDemoApp.Models;
 
-public partial class LocalDBMSSQLLocalDBContext : DbContext
+public partial class NorthwindContext : DbContext
 {
-    public LocalDBMSSQLLocalDBContext(DbContextOptions<LocalDBMSSQLLocalDBContext> options)
+    public NorthwindContext(DbContextOptions<NorthwindContext> options)
         : base(options)
     {
     }

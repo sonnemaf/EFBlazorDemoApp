@@ -1,0 +1,26 @@
+﻿@inherits DbContextComponentBase<LocalDBMSSQLLocalDBContext>
+
+<h3>ProductList: @ProductNameFilter</h3>
+
+@if (_products is not null) {
+    <ul>
+    @foreach (var item in _products) {
+        <li>@item.ProductName</li>
+    }
+    </ul>
+}
+
+@code {
+
+    [Parameter]
+    [EditorRequired]
+    public required string ProductNameFilter { get; set; }
+
+    private Product[]? _products;
+
+    protected async override Task OnInitializedAsync() {
+        _products ??= await DbContext.Products
+                              .Where(p => p.ProductName.StartsWith(this.ProductNameFilter))
+                              .ToArrayAsync();
+    }
+}
